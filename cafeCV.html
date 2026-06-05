@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renato de Bakker - Lebenslauf Gastronomie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #eef2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* A4 size container - exact dimensions for one page */
+        .cv {
+            max-width: 210mm;
+            width: 100%;
+            background: white;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Header with warm hospitality tone - compact */
+        .header {
+            background: linear-gradient(115deg, #2c3e2f 0%, #1e2a1f 100%);
+            color: white;
+            padding: 20px 28px 18px 28px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background: #f7e9d7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #e9c46a;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .avatar i {
+            font-size: 44px;
+            color: #4a6741;
+        }
+
+        .header-info h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .header-info .tagline {
+            font-size: 0.85rem;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            border-left: 3px solid #e9c46a;
+            padding-left: 12px;
+        }
+
+        .contact-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 6px;
+            font-size: 0.75rem;
+        }
+
+        .contact-icons span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 3px 10px;
+            border-radius: 40px;
+        }
+
+        .contact-icons i {
+            font-size: 0.8rem;
+            color: #e9c46a;
+        }
+
+        /* 2-Spalten-Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 0.7fr;
+            gap: 0;
+            padding: 20px 28px 16px 28px;
+        }
+
+        .left-col {
+            padding-right: 24px;
+        }
+
+        .right-col {
+            background: #fefaf5;
+            padding: 0 0 0 20px;
+            border-left: 1px solid #e9e0d3;
+        }
+
+        section {
+            margin-bottom: 18px;
+        }
+
+        h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2c3e2f;
+            border-bottom: 2px solid #e9c46a;
+            display: inline-block;
+            padding-bottom: 3px;
+            margin-bottom: 12px;
+            letter-spacing: -0.2px;
+        }
+
+        /* Berufserfahrung mit Datums-Spalte - kompakt */
+        .exp-item {
+            display: flex;
+            margin-bottom: 14px;
+        }
+
+        .exp-date {
+            flex: 0 0 80px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #b97f44;
+            letter-spacing: 0.2px;
+        }
+
+        .exp-content {
+            flex: 1;
+        }
+
+        .exp-title {
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: #1e2a1f;
+            margin-bottom: 2px;
+        }
+
+        .exp-sub {
+            font-weight: 600;
+            font-size: 0.72rem;
+            color: #b97f44;
+            margin-bottom: 4px;
+        }
+
+        .exp-desc {
+            font-size: 0.72rem;
+            line-height: 1.4;
+            color: #2c3e2f;
+        }
+
+        .exp-desc ul {
+            margin-top: 2px;
+            padding-left: 16px;
+        }
+
+        .exp-desc li {
+            margin-bottom: 2px;
+        }
+
+        /* Profil text */
+        .profile-text {
+            font-size: 0.72rem;
+            line-height: 1.45;
+            color: #2c3e2f;
+            margin-bottom: 6px;
+        }
+
+        /* Fähigkeiten als Badges */
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .skill-badge {
+            background: white;
+            border: 1px solid #e0cfbc;
+            padding: 3px 10px;
+            border-radius: 30px;
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: #2c3e2f;
+        }
+
+        /* Sprachen */
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            font-size: 0.78rem;
+        }
+
+        .lang-name {
+            font-weight: 700;
+            color: #1f2c1e;
+        }
+
+        .lang-level {
+            color: #b97f44;
+            font-size: 0.7rem;
+            font-weight: 500;
+            background: #f2e7db;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .interest-text {
+            font-size: 0.7rem;
+            line-height: 1.45;
+            color: #3c4a3a;
+            background: #fff6ed;
+            padding: 10px;
+            border-radius: 14px;
+            margin-top: 6px;
+        }
+
+        .motivation-box {
+            background: #e9e0d3;
+            padding: 10px;
+            border-radius: 14px;
+            font-size: 0.7rem;
+            color: #2c3e2f;
+            margin-top: 8px;
+        }
+
+        .footer-note {
+            background: #f4ede5;
+            text-align: center;
+            font-size: 0.65rem;
+            color: #5e6b5b;
+            padding: 8px;
+            border-top: 1px solid #e2d5c8;
+        }
+
+        /* BUTTON NUR FÜR BILDschirm - wird im Druck ausgeblendet */
+        .export-btn {
+            display: block;
+            width: calc(100% - 40px);
+            margin: 0 auto 16px auto;
+            background: #2c3e2f;
+            border: none;
+            padding: 8px;
+            color: white;
+            font-weight: 600;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: 0.2s;
+        }
+
+        .export-btn:hover {
+            background: #1e2a1f;
+        }
+
+        /* DRUCK-STYLES - GARANTIERT EINE SEITE, KEIN EXPORT BUTTON */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .cv {
+                max-width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                margin: 0;
+            }
+
+            .export-btn {
+                display: none !important;
+            }
+
+            .header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 12px 20px 10px 20px !important;
+            }
+
+            .right-col {
+                background: #fefaf5;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .skill-badge {
+                background: white;
+                print-color-adjust: exact;
+            }
+
+            @page {
+                size: A4;
+                margin: 0.4cm 0.4cm;
+            }
+
+            .main-grid {
+                padding: 12px 20px 8px 20px !important;
+            }
+
+            .footer-note {
+                print-color-adjust: exact;
+                background: #f4ede5;
+                padding: 6px !important;
+            }
+
+            /* Sicherstellen dass alles auf eine Seite passt */
+            .exp-item {
+                margin-bottom: 10px !important;
+            }
+            
+            section {
+                margin-bottom: 12px !important;
+            }
+            
+            .profile-text {
+                font-size: 0.7rem !important;
+            }
+            
+            h2 {
+                margin-bottom: 8px !important;
+                font-size: 0.95rem !important;
+            }
+            
+            .avatar {
+                width: 70px !important;
+                height: 70px !important;
+            }
+            
+            .avatar i {
+                font-size: 36px !important;
+            }
+            
+            .header-info h1 {
+                font-size: 1.5rem !important;
+            }
+            
+            .contact-icons span {
+                font-size: 0.65rem !important;
+                padding: 2px 8px !important;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                padding: 16px;
+            }
+            .right-col {
+                border-left: none;
+                padding-left: 0;
+                margin-top: 16px;
+                background: #fefaf5;
+                border-radius: 16px;
+                padding: 14px;
+            }
+            .exp-item {
+                flex-direction: column;
+            }
+            .exp-date {
+                margin-bottom: 4px;
+            }
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        /* Keine Links im Druck blau - dezent */
+        @media print {
+            a {
+                color: #2c3e2f !important;
+                text-decoration: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="cv">
+    <div class="header">
+        <div class="avatar">
+                            <img src="Renato_image.png" alt="Renato de Bakker">
+
+        </div>
+        <div class="header-info">
+            <h1>Renato de Bakker</h1>
+            <div class="tagline">Gastronomiefachkraft | Barista • Barkeeper • Service</div>
+            <div class="contact-icons">
+                <span><i class="fas fa-phone-alt"></i> +49 162 4792877</span>
+                <span><i class="fas fa-envelope"></i> prmontagni.85@gmail.com</span>
+                <span><i class="fas fa-map-marker-alt"></i> Berlin, Deutschland</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-grid">
+        <!-- LINKE SPALTE: Berufserfahrung & Ausbildung (Hauptteil) -->
+        <div class="left-col">
+            <!-- Kurzes Profil -->
+            <section>
+                <h2>Über mich</h2>
+                <p class="profile-text">
+                    Begeisterter Gastronomieprofi mit über 8 Jahren Erfahrung in Restaurants, Bars, Cafés und Spa-Bereichen. 
+                    Leidenschaft für erstklassigen Service, fundierte Kenntnisse als Barista, Barkeeper und in der Küche. 
+                    Teamplayer mit hoher Belastbarkeit, schneller Auffassungsgabe und Freude am Umgang mit Gästen. 
+                    Ich habe bereits erfolgreich bei Domino's Pizza gearbeitet und freue mich sehr, wieder Teil des Teams zu werden.
+                </p>
+            </section>
+
+            <!-- BERUFSERFAHRUNG – komplett Gastronomie / Service -->
+            <section>
+                <h2>Berufserfahrung</h2>
+
+                
+                <!-- Vabali Spa Berlin -->
+                <div class="exp-item">
+                    <div class="exp-date">2021 – 2023</div>
+                    <div class="exp-content">
+                        <div class="exp-title">Servicemitarbeiter / Barista / Barkeeper</div>
+                        <div class="exp-sub">Vabali Spa Berlin GmbH · Berlin</div>
+                        <div class="exp-desc">
+                            Vielseitige Tätigkeit in gehobener Spa-Gastronomie: Kaffeespezialitäten, Cocktails, Gästebetreuung, 
+                            Küchenhilfe und Organisation des Thekenbereichs. Hohe Serviceorientierung, internationales Publikum.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Domino's Pizza - Hervorhebung für Rückkehr -->
+                <div class="exp-item">
+                    <div class="exp-date">2021 – 2021</div>
+                    <div class="exp-content">
+                        <div class="exp-title">Koch / Pizzaiolo</div>
+                        <div class="exp-sub">Domino's Pizza · Berlin</div>
+                        <div class="exp-desc">
+                            Zubereitung von Pizzen und Pasta nach Qualitätsstandards. Einhaltung Hygiene- und Sicherheitsvorschriften. 
+                            Schnelle, präzise Arbeitsweise im Schichtbetrieb, enge Teamabstimmung für reibungslose Abläufe.
+                        </div>
+                    </div>
+                </div>
+                <!-- Burgerhaus -->
+                <div class="exp-item">
+                    <div class="exp-date">2020 – 2021</div>
+                    <div class="exp-content">
+                        <div class="exp-title">Koch / Kassierer / Servicemitarbeiter</div>
+                        <div class="exp-sub">Burgerhaus · Berlin</div>
+                        <div class="exp-desc">
+                            Zubereitung von Burgern unter Hygiene- und Qualitätsstandards. Kundenbetreuung an Kasse und Counter, 
+                            schneller und freundlicher Service im Team.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Head Barkeeper Chez Gerard -->
+                <div class="exp-item">
+                    <div class="exp-date">2015 – 2016</div>
+                    <div class="exp-content">
+                        <div class="exp-title">Head Barkeeper</div>
+                        <div class="exp-sub">Chez Gerard · Bremen</div>
+                        <div class="exp-desc">
+                            Führung Tagesgeschäft an der Bar, Cocktailkreationen, professioneller Gästeservice, Bearbeitung von Reklamationen, 
+                            Teamkoordination im Barbereich.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Distillers - Kochassistent -->
+                <div class="exp-item">
+                    <div class="exp-date">2012 – 2014</div>
+                    <div class="exp-content">
+                        <div class="exp-title">Kochassistent / Produktkontrolle</div>
+                        <div class="exp-sub">Distillers · London, UK</div>
+                        <div class="exp-desc">
+                            Unterstützung Küche, Kontrolle Produktqualität, Mise en Place, Zubereitung nach Rezeptvorgaben.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ticketverkäufer / Kundenservice (zeigt Kommunikationsstärke) -->
+                <div class="exp-item">
+                    <div class="exp-date">2019 – 2020</div>
+                    <div class="exp-content">
+                        <div class="exp-title">Ticketverkäufer / Kundenbetreuung</div>
+                        <div class="exp-sub">Berlin City Sightseeing Tour · Berlin</div>
+                        <div class="exp-desc">
+                            Kundenberatung, Verkauf, souveräner Umgang mit internationalen Gästen, Kassenführung.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KURZ: Ausbildung & relevante Weiterbildung -->
+            <section>
+                <h2>Ausbildung</h2>
+                <div class="exp-item">
+                    <div class="exp-date">2024 – 2025</div>
+                    <div class="exp-content">
+                        <div class="exp-title">Webentwicklung (Teilbereich)</div>
+                        <div class="exp-sub">Digital Career Institute, Berlin</div>
+                        <div class="exp-desc">
+                            Zusatzqualifikation: logisches Denken, Problemlösungsstrategien, strukturierte Arbeitsweise.
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-date">2004</div>
+                    <div class="exp-content">
+                        <div class="exp-title">Wirtschaftswissenschaften (Grundstudium)</div>
+                        <div class="exp-sub">Faculdade Moraes Junior, Brasilien</div>
+                        <div class="exp-desc">
+                            Betriebswirtschaftliche Grundlagen, Kassen- und Bestandsführung.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- RECHTE SPALTE: Kompetenzen, Sprachen, Interessen, Motivation -->
+        <div class="right-col">
+            <!-- Fachkompetenzen Gastronomie -->
+            <section>
+                <h2>Kompetenzen</h2>
+                <div class="skill-list">
+                    <span class="skill-badge">Barista (Espresso, Latte Art)</span>
+                    <span class="skill-badge">Barkeeper (Cocktails)</span>
+                    <span class="skill-badge">Küchenhilfe / Koch</span>
+                    <span class="skill-badge">Kassensysteme & POS</span>
+                    <span class="skill-badge">Gästebetreuung & Reklamation</span>
+                    <span class="skill-badge">Hygienevorschriften (HACCP)</span>
+                    <span class="skill-badge">Lagerverwaltung & Bestand</span>
+                    <span class="skill-badge">Teamfähigkeit & Flexibilität</span>
+                    <span class="skill-badge">Interkulturelle Kommunikation</span>
+                    <span class="skill-badge">Belastbarkeit & Zuverlässigkeit</span>
+                </div>
+            </section>
+
+            <!-- SPRACHKENNTNISSE - Deutsch auf C1 -->
+            <section>
+                <h2>Sprachen</h2>
+                <div class="lang-item">
+                    <span class="lang-name">Portugiesisch</span>
+                    <span class="lang-level">Muttersprache</span>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-name">Deutsch</span>
+                    <span class="lang-level">C1 (fließend)</span>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-name">Englisch</span>
+                    <span class="lang-level">C2 (verhandlungssicher)</span>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-name">Spanisch</span>
+                    <span class="lang-level">C1 (fortgeschritten)</span>
+                </div>
+            </section>
+
+            <!-- Soft Skills -->
+            <section>
+                <h2>Soft Skills</h2>
+                <div class="skill-list">
+                    <span class="skill-badge">Teamfähigkeit</span>
+                    <span class="skill-badge">Kommunikationsstärke</span>
+                    <span class="skill-badge">Zuverlässigkeit</span>
+                    <span class="skill-badge">Hygienebewusstsein</span>
+                    <span class="skill-badge">Gastgeber-Mentalität</span>
+                    <span class="skill-badge">Stressresistenz</span>
+                    <span class="skill-badge">Kreativität</span>
+                </div>
+            </section>
+
+            <!-- Interessen (authentisch) -->
+            <section>
+                <h2>Interessen</h2>
+                <div class="interest-text">
+                    <i class="fas fa-music" style="margin-right: 6px; color: #b97f44;"></i> Musik & Songwriting<br>
+                    <i class="fas fa-video" style="margin-right: 6px; color: #b97f44;"></i> Videobearbeitung & kreative Projekte<br>
+                    <i class="fas fa-chess" style="margin-right: 6px; color: #b97f44;"></i> Schach & strategisches Denken<br>
+                    <i class="fas fa-hiking" style="margin-right: 6px; color: #b97f44;"></i> Reisen, Strand & Natur<br>
+                    <i class="fas fa-book" style="margin-right: 6px; color: #b97f44;"></i> Lesen (verschiedene Genres)<br>
+                    <i class="fas fa-heart" style="margin-right: 6px; color: #b97f44;"></i> Familie & Kochen
+                </div>
+            </section>
+            
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <i class="fas fa-utensils"></i> Leidenschaft für Service & Gastronomie – flexibel, engagiert & sofort einsatzbereit
+    </div>
+
+    <!-- Button nur für Bildschirm, im Druck vollständig unsichtbar -->
+    <button class="export-btn" onclick="window.print()">📄 Als PDF speichern / Drucken</button>
+</div>
+</body>
+</html>

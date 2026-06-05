@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renato_CV - Data Operations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* EXACTLY YOUR EXISTING CSS - KEEP EVERYTHING THE SAME */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .page-container {
+            width: 100%;
+            max-width: 210mm;
+            background: white;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 297mm;
+        }
+        
+        /* Keep ALL your existing CSS exactly as is */
+        header {
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+        
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid white;
+            overflow: hidden;
+            background: white;
+            flex-shrink: 0;
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header-content {
+            flex: 1;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .title {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .header-tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .icon-link {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-align: center;
+            line-height: 32px;
+            font-size: 14px;
+        }
+        
+        .content {
+            padding: 20px 25px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .left-column {
+        }
+
+        .right-column {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        section {
+            margin-bottom: 18px;
+        }
+        
+        h2 {
+            color: #4b6cb7;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #eaecef;
+            font-size: 1.2rem;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 15px;
+            display: flex;
+        }
+        
+        .date-column {
+            flex: 0 0 90px;
+            color: #7f8c8d;
+            font-weight: 500;
+            padding-right: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .content-column {
+            flex: 1;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #4b6cb7;
+            font-weight: 500;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+        
+        .item-subtitle {
+            font-weight: 500;
+            color: #4b6cb7;
+            font-size: 0.85rem;
+        }
+        
+        .skills-category {
+            margin-bottom: 15px;
+        }
+        
+        .category-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .category-title i {
+            color: #4b6cb7;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+        
+        .skill {
+            background: white;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            border: 1px solid #d1d9e6;
+            color: #2c3e50;
+        }
+        
+        .skill-highlight {
+            background: #4b6cb7;
+            color: white;
+            border: none;
+            font-weight: 500;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .profile-img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .content {
+                grid-template-columns: 1fr;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .right-column {
+                order: -1;
+            }
+            
+            .experience-item, .education-item {
+                flex-direction: column;
+            }
+            
+            .date-column {
+                margin-bottom: 5px;
+                padding-right: 0;
+            }
+        }
+        
+        .export-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #4b6cb7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        
+        .export-btn:hover {
+            background: #3a5999;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+        
+        .contact-item i {
+            color: #4b6cb7;
+            width: 16px;
+        }
+
+        .email-link {
+            color: #4b6cb7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media print {
+            /* Keep ALL your existing print styles exactly as they are */
+            body {
+                padding: 0 !important;
+                margin: 0 !important;
+                background: white !important;
+                width: 210mm !important;
+                height: 297mm !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                display: block !important;
+            }
+            
+            .page-container {
+                max-width: 210mm !important;
+                width: 210mm !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 auto !important;
+                padding: 0 !important;
+                min-height: 297mm !important;
+                display: block !important;
+            }
+            
+            header {
+                padding: 10px 15px !important;
+                min-height: auto !important;
+                margin-bottom: 0 !important;
+                width: 100% !important;
+                display: flex !important;
+            }
+            
+            .profile-img {
+                width: 70px !important;
+                height: 70px !important;
+            }
+            
+            h1 {
+                font-size: 1.6rem !important;
+            }
+            
+            .title {
+                font-size: 0.9rem !important;
+            }
+            
+            .header-tagline {
+                font-size: 0.8rem !important;
+                margin-bottom: 5px !important;
+            }
+            
+            .content {
+                padding: 15px 20px !important;
+                gap: 15px !important;
+                margin-top: 0 !important;
+                display: grid !important;
+                grid-template-columns: 2fr 1fr !important;
+            }
+
+            .icon-link {
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.2);
+                color: white !important;
+                text-align: center;
+                line-height: 32px;
+                font-size: 14px;
+            }
+            
+            .projects .experience-item:not(:last-child) {
+                padding-bottom: 12px !important;
+                border-bottom: 1px solid #f0f0f0 !important;
+            }
+            
+            .right-column {
+                background: none !important;
+                border: 1px solid #eaecef !important;
+                padding: 12px !important;
+            }
+            
+            .item-title {
+                font-size: 0.95rem !important;
+            }
+            
+            .item-subtitle {
+                font-size: 0.8rem !important;
+            }
+            
+            section p, .content-column p {
+                font-size: 0.85rem !important;
+                line-height: 1.5 !important;
+            }
+            
+            .skill {
+                padding: 3px 6px !important;
+                font-size: 0.75rem !important;
+            }
+            
+            .export-btn {
+                display: none !important;
+            }
+            
+            footer {
+                padding: 12px !important;
+                font-size: 0.75rem !important;
+                margin-top: 29.5em !important;
+                width: 100%;
+                height: 5em;
+                page-break-before: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            
+            @page {
+                margin: 0 !important;
+                size: A4 portrait;
+            }
+                        
+            a {
+                color: #4b6cb7 !important;
+                text-decoration: none !important;
+            }
+
+            .email-link {
+                color: #4b6cb7 !important;
+                text-decoration: none !important;
+            }
+            .online-shop,
+            .experience,
+            .interests {
+                position: relative;
+                top: 8.5em;
+            }
+            .yoga{ 
+                position: relative;
+                top: 9em;
+                bottom: -1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <div class="profile-img">
+                <img src="Renato_image.png" alt="Renato de Bakker">
+            </div>
+            <div class="header-content">
+                <h1>Renato de Bakker</h1>
+                <!-- CHANGED: Title to be more relevant -->
+                <p class="title">DATA OPERATIONS | DATA ENTRY & QUALITY</p>
+                <!-- CHANGED: Tagline to highlight data-relevant skills -->
+                <p class="header-tagline">
+                    Detail-oriented professional with strong analytical thinking, database experience, 
+                    and proven ability to maintain data accuracy. Combines technical precision with 
+                    methodical work style for reliable data management.
+                </p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/renato-de-bakker-400543360/" class="icon-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.xing.com/profile/Renato_deBakker/web_profiles" class="icon-link" target="_blank">
+                        <i class="fab fa-xing"></i>
+                    </a>
+                    <a href="https://github.com/P-Renato" class="icon-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        
+        <div class="content">
+            <div class="left-column">
+                <section>
+                    <!-- CHANGED: Career Objective to focus on data work -->
+                    <h2>Career Objective</h2>
+                    <p>
+                        Methodical professional seeking a Data Entry Analyst role where I can apply my strong attention to detail, 
+                        database knowledge, and analytical thinking. Experienced in maintaining data accuracy, identifying 
+                        inconsistencies, and working with structured information. Eager to contribute to reliable data 
+                        management and operational efficiency.
+                    </p>
+                    <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/renato-de-bakker-400543360/" class="icon-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.xing.com/profile/Renato_deBakker/web_profiles" class="icon-link" target="_blank">
+                        <i class="fab fa-xing"></i>
+                    </a>
+                    <a href="https://github.com/P-Renato" class="icon-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                </section>
+
+                <section>
+                    <h2>Education</h2>
+                    <div class="education-item">
+                        <div class="date-column">12/2024 – Present</div>
+                        <div class="content-column">
+                            <!-- CHANGED: Added data focus -->
+                            <div class="item-title">Fullstack Development with Database Focus</div>
+                            <div class="item-subtitle">DCI – Digital Career Institute, Berlin</div>
+                            <p>
+                                Intensive training in database management (PostgreSQL, MongoDB), data structures, 
+                                and analytical problem-solving. Experience organizing, querying, and validating 
+                                large datasets.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="date-column">01/2004 – 12/2004</div>
+                        <div class="content-column">
+                            <div class="item-title">Economics</div>
+                            <div class="item-subtitle">Faculdade Moraes Junior, Brazil</div>
+                            <p>Fundamentals of quantitative methods, data analysis, and business information systems.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CHANGED: This is the most important section - reframe projects as data projects -->
+                <section class="projects">
+                    <h2>Data & Analytical Projects</h2>
+                    
+                    <!-- NEW: Add your log analysis project FIRST -->
+                    <div class="experience-item">
+                        <div class="date-column">01/2026 – Present</div>
+                        <div class="content-column">
+                            <div class="item-title">Web Server Log Analysis & Data Cleaning</div>
+                            <div class="item-subtitle">Bash Scripting, Data Processing</div>
+                            <p>
+                                Developed scripts to parse and analyze 40,000+ lines of server log data. 
+                                Tasks included: data validation, pattern recognition, error identification, 
+                                and generating summary reports. Demonstrated ability to work with large 
+                                datasets, maintain data accuracy, and identify inconsistencies.
+                            </p>
+                            <p><strong>Key outcomes:</strong> Automated data cleaning, reduced manual review time, 
+                            created structured reports from raw data.</p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="date-column">10/2025 – 11/2025</div>
+                        <div class="content-column">
+                            <div class="item-title">Portfolio Website with Data Integration</div>
+                            <div class="item-subtitle">MongoDB, Zapier, Data Workflows</div>
+                            <p>
+                                Built system with automated contact data collection and storage. 
+                                Designed data validation rules, maintained data integrity across systems, 
+                                and created structured data entry workflows.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="date-column">11/2025 – 12/2025</div>
+                        <div class="content-column">
+                            <div class="item-title">Coffeemates - Database Design & Management</div>
+                            <div class="item-subtitle">MongoDB, Data Modeling, User Data Management</div>
+                            <p>
+                                Designed and maintained database structure for user profiles, messages, and 
+                                coffee shop data. Implemented data validation, ensured data consistency, 
+                                and managed user information securely. Worked with both structured and 
+                                unstructured data.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Keep other projects but reframe with data angle -->
+                    <div class="experience-item  online-shop yoga">
+                        <div class="date-column">07/2025 – 08/2025</div>
+                        <div class="content-column">
+                            <div class="item-title">Yoga Instructor Platform</div>
+                            <div class="item-subtitle">Data Organization & Content Management</div>
+                            <p>
+                                3-person team project. Responsible for organizing and structuring content data,
+                                ensuring consistent formatting across the platform, and maintaining data accuracy.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="experience">
+                    <h2>Professional Experience</h2>
+                    <!-- CHANGED: Highlight data-relevant skills from these roles -->
+                    <div class="experience-item">
+                        <div class="date-column">08/2021 – 07/2023</div>
+                        <div class="content-column">
+                            <div class="item-title">Service Assistant</div>
+                            <div class="item-subtitle">Vabali Spa GmbH, Berlin</div>
+                            <p>
+                                Managed digital booking systems, maintained accurate customer records, 
+                                and handled data entry with high attention to detail. Processed information 
+                                accurately in fast-paced environment.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="date-column">04/2019 – 11/2020</div>
+                        <div class="content-column">
+                            <div class="item-title">Tour Operator</div>
+                            <div class="item-subtitle">BCT Berlin City Tour GmbH</div>
+                            <p>
+                                Managed digital booking systems, maintained customer databases, and processed 
+                                reservations with 100% accuracy. Coordinated scheduling data and ensured 
+                                information consistency across platforms.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="right-column">
+                <section>
+                    <h2>Contact</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+49 162 4792877</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>
+                                <a href="mailto:prmontagni.85@gmail.com" class="email-link">
+                                    prmontagni.85@gmail.com
+                                </a>
+                            </span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Berlin, Germany</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>Technical Skills</h2>
+                    
+                    <!-- CHANGED: Reorganized to highlight data-relevant skills first -->
+                    <div class="skills-category">
+                        <div class="category-title">
+                            <i class="fas fa-database"></i> Data & Databases
+                        </div>
+                        <div class="skills">
+                            <span class="skill skill-highlight">PostgreSQL</span>
+                            <span class="skill skill-highlight">MongoDB</span>
+                            <span class="skill">MySQL</span>
+                            <span class="skill">Data Validation</span>
+                            <span class="skill">Data Cleaning</span>
+                            <span class="skill">SQL Queries</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <div class="category-title">
+                            <i class="fas fa-terminal"></i> Data Processing
+                        </div>
+                        <div class="skills">
+                            <span class="skill skill-highlight">Bash Scripting</span>
+                            <span class="skill">Command Line</span>
+                            <span class="skill">Log Analysis</span>
+                            <span class="skill">Pattern Recognition</span>
+                            <span class="skill">grep/awk/cut</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <div class="category-title">
+                            <i class="fas fa-code"></i> Development
+                        </div>
+                        <div class="skills">
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">TypeScript</span>
+                            <span class="skill">React</span>
+                            <span class="skill">Node.js</span>
+                            <span class="skill">HTML5/CSS3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <div class="category-title">
+                            <i class="fas fa-tools"></i> Tools
+                        </div>
+                        <div class="skills">
+                            <span class="skill">Git</span>
+                            <span class="skill">Excel (Basic)</span>
+                            <span class="skill">Google Sheets</span>
+                            <span class="skill">Zapier</span>
+                            <span class="skill">N8n</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Languages</h2>
+                    <div style="margin-bottom: 8px;">
+                        <strong>Portuguese</strong> – Native<br>
+                        <strong>English</strong> – C2 (Proficient)<br>
+                        <strong>Spanish</strong> – C1 (Advanced)<br>
+                        <strong>German</strong> – B2 (Intermediate)
+                    </div>
+                </section>
+
+                <section class="interests">
+                    <h2>Interests</h2>
+                    <p>
+                        Passionate musician (live performance, songwriting, recording). Video editing & creative content production.
+                        These interests require precision, attention to detail, and methodical work—skills directly applicable to 
+                        data management.
+                    </p>
+                </section>
+            </div>
+        </div>
+        
+        <footer style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; ">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/renato-de-bakker-400543360/" class="icon-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.xing.com/profile/Renato_deBakker/web_profiles" class="icon-link" target="_blank">
+                    <i class="fab fa-xing"></i>
+                </a>
+                <a href="https://github.com/P-Renato" class="icon-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </footer>
+        
+        <button class="export-btn" onclick="window.print()">Export to PDF</button>
+    </div>
+</body>
+</html>
